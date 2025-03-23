@@ -1,0 +1,34 @@
+[
+  {
+    "ContainingType": "API.Controllers.PdfAnlyzerController",
+    "Method": "AnalyzePdf",
+    "RelativePath": "api/PdfAnlyzer/AnalyzePdf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pdfContent",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.PdfAnlyzerController",
+    "Method": "HandleFileUpload",
+    "RelativePath": "api/PdfAnlyzer/HandleFileUpload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

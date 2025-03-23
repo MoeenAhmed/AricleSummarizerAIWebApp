@@ -1,0 +1,57 @@
+ 
+ <mat-tab-group (selectedTabChange)="onTabChange($event)">
+    <mat-tab label="File Upload">
+        <div style="width: 500;margin:20px;">
+            <mat-toolbar *ngIf="currentFile" class="progress-bar">
+              <mat-progress-bar color="red" [value]="progressValue"></mat-progress-bar>
+              <span class="progress primary">{{ progressValue }}%</span>
+            </mat-toolbar>
+            <mat-form-field>
+              <div>
+                <mat-toolbar>
+                  <input matInput [value]="fileName" />
+                  <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload()">
+                    Submit
+                  </button>
+                </mat-toolbar>
+                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" />
+              </div>
+            </mat-form-field>
+        </div>
+        <mat-card appearance="outlined" style="margin: 20px;">
+          <mat-card-header>
+            <mat-card-subtitle *ngIf="data.Title != ''">Article Title: <span
+                style="font-weight: normal;">{{data.Title}}</span></mat-card-subtitle>
+            <mat-card-subtitle *ngIf="data.Title != ''">Tags: <span
+                style="font-weight: normal;">{{data.Tags}}</span></mat-card-subtitle>
+            <mat-card-subtitle *ngIf="data.Title != ''">Summary: <span style="font-weight:normal;">{{ data.Summary
+                }}</span></mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content *ngIf="data.Title == ''" style="text-align: center;">Article Details will show here upload
+            file</mat-card-content>
+        </mat-card>
+    </mat-tab>
+    <mat-tab label="Free Text">
+        <mat-form-field>
+            <mat-label >Add Text here</mat-label>
+            <textarea matInput [(ngModel)]="textAreaText"></textarea>
+          </mat-form-field>
+          <button mat-flat-button (click)="TextAreaButtonCLick()">Submit</button>
+          <mat-card appearance="outlined" style="margin: 20px;">
+            <mat-card-header>
+              <mat-card-subtitle *ngIf="data.Title != ''">Article Title: <span
+                  style="font-weight: normal;">{{data.Title}}</span></mat-card-subtitle>
+              <mat-card-subtitle *ngIf="data.Title != ''">Tags: <span
+                  style="font-weight: normal;">{{data.Tags}}</span></mat-card-subtitle>
+              <mat-card-subtitle *ngIf="data.Title != ''">Summary: <span style="font-weight:normal;">{{ data.Summary
+                  }}</span></mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content *ngIf="data.Title == ''" style="text-align: center;">Article Details will show here paste
+              text</mat-card-content>
+          </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+
+  <div *ngIf="loading">
+    <app-loader></app-loader> 
+  </div> 
